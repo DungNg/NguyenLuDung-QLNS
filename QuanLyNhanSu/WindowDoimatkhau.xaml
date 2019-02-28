@@ -1,0 +1,71 @@
+﻿<Window x:Class="QuanLyNhanSu.WindowTaikhoan"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyNhanSu"
+        mc:Ignorable="d"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        Loaded="Window_Loaded"
+        ResizeMode="NoResize"
+        FontWeight="DemiBold"
+        Title="Đổi mật khẩu" Height="314" Width="339" WindowStartupLocation="CenterScreen">
+    <Grid Background="SlateGray">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Name="txtTendangnhap" Visibility="Hidden"></TextBlock>
+            </Grid>
+            <Grid Grid.Row="1">
+                <materialDesign:Card Margin="5 5 5 0">
+                    <PasswordBox
+  materialDesign:HintAssist.Hint="Mật khẩu cũ"
+  Name="tbxMatkhaucu"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="10" />
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="2">
+                <materialDesign:Card Margin="5">
+                    <PasswordBox
+  materialDesign:HintAssist.Hint="Mật khẩu mới"
+  Name="tbxMatkhaumoi"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="10" />
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="3">
+                <materialDesign:Card Margin="5 0 5 5">
+                    <PasswordBox
+  materialDesign:HintAssist.Hint="Nhập lại mật khẩu"
+  Name="tbxNhaplaimatkhau"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="10" />
+                </materialDesign:Card>
+            </Grid>
+            <Grid Grid.Row="4">
+                <materialDesign:Card Margin="5 0 5 5">
+                    <Button Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="100"
+                        Name="btnLuu"
+                        Content="Lưu"
+                        Margin="10"
+                        ToolTip="Lưu" Click="btnLuu_Click">
+                    </Button>
+                </materialDesign:Card>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

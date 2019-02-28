@@ -1,0 +1,199 @@
+﻿<Window x:Class="QuanLyNhanSu.Manhinhchinh"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyNhanSu"
+        mc:Ignorable="d"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        Loaded="Window_Loaded"
+        ResizeMode="NoResize"
+        Name="NameManhinhchinh"
+        Title="Trang chủ" Height="510" Width="660" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontWeight" Value="DemiBold"></Setter>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="330"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                    x:Name="btnHoso"
+                    Click="btnHoso_Click"
+                    Height="60"
+                    Width="100"
+                    Content="Hồ sơ"
+                    Grid.Column="0"
+                    ToolTip="Hồ sơ">
+            </Button>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                    x:Name="btnChucvu"
+                    Click="btnChucvu_Click"
+                    Height="60"
+                    Width="100"
+                    Content="Chức vụ"
+                    Grid.Column="1"
+                    ToolTip="Chức vụ">
+            </Button>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                    x:Name="btnHopdong"
+                    Click="btnHopdong_Click"
+                    Height="60"
+                    Width="100"
+                    Content="Hợp đồng"
+                    Grid.Column="2"
+                    ToolTip="Hợp đồng">
+            </Button>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                    x:Name="btnTrinhdo"
+                    Click="btnTrinhdo_Click"
+                    Height="60"
+                    Width="100"
+                    Content="Trình độ"
+                    Grid.Column="3"
+                    ToolTip="Trình độ">
+            </Button>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                    x:Name="btnPhong"
+                    Click="btnPhong_Click"
+                    Height="60"
+                    Width="100"
+                    Content="Phòng"
+                    Grid.Column="4"
+                    ToolTip="Phòng">
+            </Button>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                    x:Name="btnLuong"
+                    Click="btnLuong_Click"
+                    Height="60"
+                    Width="100"
+                    Content="Lương"
+                    Grid.Column="5"
+                    ToolTip="Lương">
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <materialDesign:PackIcon Kind="AccountBox" HorizontalAlignment="Center" />
+            <materialDesign:PackIcon Kind="AccountCardDetails" Grid.Column="1" HorizontalAlignment="Center" />
+            <materialDesign:PackIcon Kind="Archive" Grid.Column="2" HorizontalAlignment="Center" />
+            <materialDesign:PackIcon Kind="ChartLineVariant" Grid.Column="3" HorizontalAlignment="Center" />
+            <materialDesign:PackIcon Kind="City" Grid.Column="4" HorizontalAlignment="Center" />
+            <materialDesign:PackIcon Kind="Emoticon" Grid.Column="5" HorizontalAlignment="Center" />
+        </Grid>
+        <Grid Grid.Row="2" >
+            <materialDesign:Card>
+                <TreeView Height="328">
+                    <TreeViewItem FontWeight="DemiBold" Header="Hệ thống" IsExpanded="True">
+                        <TreeViewItem x:Name="Quanlytaikhoan" PreviewMouseDown="Quanlytaikhoan_PreviewMouseDown">
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Login" />
+                                    <TextBlock Text="Quản lý tài khoản" ></TextBlock>
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        <TreeViewItem x:Name="DoimatkhauItem" PreviewMouseDown="DoimatkhauItem_PreviewMouseDown">
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Login" />
+                                    <TextBlock Text="Đổi mật khẩu" ></TextBlock>
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        <TreeViewItem x:Name="DangxuatItem" PreviewMouseDown="DangxuatItem_PreviewMouseDown">
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Logout" />
+                                    <TextBlock Text="Đăng xuất"></TextBlock>
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                    </TreeViewItem>
+                    <TreeViewItem FontWeight="DemiBold" Header="Nghiệp vụ" IsExpanded="True">
+                        <TreeViewItem Name="QuanlyhosoItem" PreviewMouseDown="QuanlyhosoItem_PreviewMouseDown">
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="Account" />
+                                    <TextBlock Text="Quản lý hồ sơ"></TextBlock>
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        <TreeViewItem Name="QuanlyluongItem" PreviewMouseDown="QuanlyluongItem_PreviewMouseDown">
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="BookVariant" />
+                                    <TextBlock Text="Quản lý lương"></TextBlock>
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                        <TreeViewItem Name="ThongkeItem" PreviewMouseDown="ThongkeItem_PreviewMouseDown">
+                            <TreeViewItem.Header>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="CheckboxMultipleBlankOutline" />
+                                    <TextBlock Text="Thống kê lương"></TextBlock>
+                                </StackPanel>
+                            </TreeViewItem.Header>
+                        </TreeViewItem>
+                    </TreeViewItem>
+                </TreeView>
+            </materialDesign:Card>
+        </Grid>
+        <Grid Grid.Row="3" Height="30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Name="txtXinchao" Text="Xin chào " HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock Name="txtTenhienthi" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
+            </Grid>
+            <Grid Grid.Column="2">
+                
+            </Grid>
+            <Grid Grid.Column="3">
+                <Button Style="{StaticResource MaterialDesignFlatButton}"
+                        ToolTip="Thoát" 
+                        Height="25"
+                        Name="btnThoat"
+                        Click="btnThoat_Click"
+                        Content="Thoát">
+                </Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

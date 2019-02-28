@@ -1,0 +1,152 @@
+﻿<Window x:Class="QuanLyNhanSu.WindowHoso"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyNhanSu"
+        mc:Ignorable="d"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        
+        
+        Title="Hồ sơ" FontWeight="DemiBold" Height="700" Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid Background="SlateGray">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Thông tin hồ sơ" HorizontalAlignment="Center" Margin="0 0 0 2" Foreground="White"></TextBlock>
+                <materialDesign:Card Grid.Row="1" >
+                    <WrapPanel>
+                        <TextBox Width="100"
+                                 Name="tbxManv"
+  materialDesign:HintAssist.Hint="Mã nhân viên*"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10" />
+                        <TextBox Width="100"
+                                 Name="tbxHodem"
+  materialDesign:HintAssist.Hint="Họ đệm*"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10" />
+                    <TextBox Width="100"
+                             Name="tbxTen"
+  materialDesign:HintAssist.Hint="Tên*"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10" />
+                    <TextBox Width="100"
+                             Name="tbxGioitinh"
+  materialDesign:HintAssist.Hint="Giới tính"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10" />
+                        <DatePicker
+                            Name="dpNgaysinh"
+  Margin="10 10 10 0"
+  Width="100" Height="25"
+  materialDesign:HintAssist.Hint="Ngày sinh"
+  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                        <TextBox Width="100"
+                                 Name="tbxNoisinh"
+  materialDesign:HintAssist.Hint="Nơi sinh"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10" />
+                    <TextBox Width="100"
+                             Name="tbxCMND"
+  materialDesign:HintAssist.Hint="CMND"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10" />
+                    <TextBox Width="100"
+                             Name="tbxSodienthoai"
+  materialDesign:HintAssist.Hint="Số điện thoại"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10" />
+                        <DatePicker
+                            Name="dpNgayvaoCT"
+  Margin="10 10 10 0"
+  Width="100" Height="25"
+  materialDesign:HintAssist.Hint="Ngày vào CT"
+  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                        <TextBox Width="100"
+                                 Name="tbxDantoc"
+  materialDesign:HintAssist.Hint="Dân tộc"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10" />
+                    <TextBox Width="100"
+                             Name="tbxBHXH"
+  materialDesign:HintAssist.Hint="Số BHXH"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10" />
+                        <ComboBox Name="cbbMahd" Margin="10 10 10 10" Width="120" materialDesign:HintAssist.Hint="Hợp đồng"></ComboBox>
+                        <ComboBox Name="cbbMacv" Margin="10 10 10 10" Width="120" materialDesign:HintAssist.Hint="Chức vụ"></ComboBox>
+                        <ComboBox Name="cbbMatd" Margin="10 10 10 10" Width="120" materialDesign:HintAssist.Hint="Trình độ"></ComboBox>
+                        <ComboBox Name="cbbMaphong" Margin="10 10 10 10" Width="120" materialDesign:HintAssist.Hint="Phòng"></ComboBox>
+                    </WrapPanel>
+            </materialDesign:Card>
+        </Grid>
+        <Grid Grid.Row="1" Margin="0 10 0 10">
+            <materialDesign:Card>
+                <WrapPanel HorizontalAlignment="Right">
+                        <TextBlock VerticalAlignment="Center" Text="Tìm kiếm: "></TextBlock>
+                        <TextBox TextChanged="tbxTimkiem_TextChanged" Name="tbxTimkiem" Width="200" Margin="10"></TextBox>
+                        <Button Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="100"
+                        Click="btnThem_Click"
+                        Name="btnThem"
+                        Content="Thêm"
+                        Margin="10"
+                        ToolTip="Thêm">
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="100"
+                        Click="btnXoa_Click"
+                        Name="btnXoa"
+                        Content="Xóa"
+                        Margin="10"
+                        ToolTip="Xóa">
+                    </Button>
+                    <Button Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="100"
+                        Click="btnSua_Click"
+                        Name="btnSua"
+                        Content="Sửa"
+                        Margin="10"
+                        ToolTip="Sửa">
+                    </Button>
+                </WrapPanel>
+            </materialDesign:Card>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <materialDesign:Card>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <ListView x:Name="ListViewHoso" SelectionChanged="Listviewhs_SelectionChanged">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Mã nv" DisplayMemberBinding="{Binding Manv}"></GridViewColumn>
+                                <GridViewColumn Header="Họ đệm" DisplayMemberBinding="{Binding Hodem}"></GridViewColumn>
+                                <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding Ten}"></GridViewColumn>
+                                <GridViewColumn Header="Giới tính" DisplayMemberBinding="{Binding Gioitinh}"></GridViewColumn>
+                                    <GridViewColumn Header="Ngày sinh" DisplayMemberBinding="{Binding Ngaysinh,StringFormat=dd/MM/yyyy}"></GridViewColumn>
+                                <GridViewColumn Header="Nơi sinh" DisplayMemberBinding="{Binding Noisinh}"></GridViewColumn>
+                                <GridViewColumn Header="CMND" DisplayMemberBinding="{Binding SoCMND}"></GridViewColumn>
+                                <GridViewColumn Header="Số điện thoại" DisplayMemberBinding="{Binding Sodt}"></GridViewColumn>
+                                    <GridViewColumn Header="Ngày vào CT" DisplayMemberBinding="{Binding NgayvaoCT,StringFormat=dd/MM/yyyy}"></GridViewColumn>
+                                <GridViewColumn Header="Dân tộc" DisplayMemberBinding="{Binding Dantoc}"></GridViewColumn>
+                                <GridViewColumn Header="Số BHXH" DisplayMemberBinding="{Binding BHXH}"></GridViewColumn>
+                                <GridViewColumn Header="Mã hợp đồng" DisplayMemberBinding="{Binding Mahd}"></GridViewColumn>
+                                <GridViewColumn Header="Mã chức vụ" DisplayMemberBinding="{Binding Macv}"></GridViewColumn>
+                                <GridViewColumn Header="Mã trình độ" DisplayMemberBinding="{Binding Matd}"></GridViewColumn>
+                                <GridViewColumn Header="Mã phòng" DisplayMemberBinding="{Binding Maphong}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+    </Grid>
+</Window>

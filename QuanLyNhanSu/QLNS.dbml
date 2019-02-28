@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLNS" Class="QLNSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DUNGNG\SERVER0;Initial Catalog=QLNS;Integrated Security=True" SettingsObjectName="QuanLyNhanSu.Properties.Settings" SettingsPropertyName="QLNSConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblTrinhdo" Member="tblTrinhdos">
+    <Type Name="tblTrinhdo">
+      <Column Name="Matd" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Tentd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblTrinhdo_tblHoso" Member="tblHosos" ThisKey="Matd" OtherKey="Matd" Type="tblHoso" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblChucvu" Member="tblChucvus">
+    <Type Name="tblChucvu">
+      <Column Name="Macv" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Tencv" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblChucvu_tblHoso" Member="tblHosos" ThisKey="Macv" OtherKey="Macv" Type="tblHoso" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblHopdong" Member="tblHopdongs">
+    <Type Name="tblHopdong">
+      <Column Name="Mahd" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Tenhd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ghichu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblHopdong_tblHoso" Member="tblHosos" ThisKey="Mahd" OtherKey="Mahd" Type="tblHoso" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblHoso" Member="tblHosos">
+    <Type Name="tblHoso">
+      <Column Name="Manv" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Hodem" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Ten" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Gioitinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Ngaysinh" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Noisinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoCMND" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sodt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NgayvaoCT" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Dantoc" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BHXH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mahd" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Macv" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Matd" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Maphong" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tblHoso_tblLuong" Member="tblLuongs" ThisKey="Manv" OtherKey="Manv" Type="tblLuong" />
+      <Association Name="tblChucvu_tblHoso" Member="tblChucvu" ThisKey="Macv" OtherKey="Macv" Type="tblChucvu" IsForeignKey="true" />
+      <Association Name="tblHopdong_tblHoso" Member="tblHopdong" ThisKey="Mahd" OtherKey="Mahd" Type="tblHopdong" IsForeignKey="true" />
+      <Association Name="tblTrinhdo_tblHoso" Member="tblTrinhdo" ThisKey="Matd" OtherKey="Matd" Type="tblTrinhdo" IsForeignKey="true" />
+      <Association Name="tblPhong_tblHoso" Member="tblPhong" ThisKey="Maphong" OtherKey="Maphong" Type="tblPhong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLoaitaikhoan" Member="tblLoaitaikhoans">
+    <Type Name="tblLoaitaikhoan">
+      <Column Name="Maloai" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblLoaitaikhoan_tblTaikhoan" Member="tblTaikhoans" ThisKey="Maloai" OtherKey="Maloai" Type="tblTaikhoan" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblLuong" Member="tblLuongs">
+    <Type Name="tblLuong">
+      <Column Name="Ngay" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Manv" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Songaylv" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tiencong1ngay" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sogiotangca" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Luong1giotangca" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BHXH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Thuong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tongluong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblHoso_tblLuong" Member="tblHoso" ThisKey="Manv" OtherKey="Manv" Type="tblHoso" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblPhong" Member="tblPhongs">
+    <Type Name="tblPhong">
+      <Column Name="Maphong" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Tenphong" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblPhong_tblHoso" Member="tblHosos" ThisKey="Maphong" OtherKey="Maphong" Type="tblHoso" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblTaikhoan" Member="tblTaikhoans">
+    <Type Name="tblTaikhoan">
+      <Column Name="Tendangnhap" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Matkhau" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Tenhienthi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Maloai" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblLoaitaikhoan_tblTaikhoan" Member="tblLoaitaikhoan" ThisKey="Maloai" OtherKey="Maloai" Type="tblLoaitaikhoan" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
